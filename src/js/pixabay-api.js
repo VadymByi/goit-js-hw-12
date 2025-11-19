@@ -4,8 +4,9 @@ import 'izitoast/dist/css/iziToast.min.css';
 
 const API_KEY = '53264835-3cab029ef424b81cbc621d12a';
 const BASE_URL = 'https://pixabay.com/api/';
+export const perPage = 15;
 
-export const getImagesByQuery = async query => {
+export const getImagesByQuery = async (query, page = 1) => {
   if (!query || query.trim() === '') {
     iziToast.warning({
       title: 'Warning',
@@ -17,7 +18,7 @@ export const getImagesByQuery = async query => {
 
   const url = `${BASE_URL}?key=${API_KEY}&q=${encodeURIComponent(
     query
-  )}&image_type=photo&orientation=horizontal&safesearch=true`;
+  )}&image_type=photo&orientation=horizontal&safesearch=true&per_page=${perPage}&page=${page}`;
 
   try {
     const response = await axios.get(url);
@@ -32,22 +33,3 @@ export const getImagesByQuery = async query => {
     throw error;
   }
 };
-// export const getImagesByQuery = query => {
-//   const url = `${BASE_URL}?key=${API_KEY}&q=${encodeURIComponent(
-//     query
-//   )}&image_type=photo&orientation=horizontal&safesearch=true`;
-//   console.log(url);
-
-//   return fetch(url)
-//     .then(response => {
-//       if (!response.ok) {
-//         throw new Error('HTTP error: ' + response.status);
-//       }
-//       return response.json();
-//     })
-//     .then(data => data)
-//     .catch(error => {
-//       console.error('Fetch error: ', error);
-//       throw error;
-//     });
-// };

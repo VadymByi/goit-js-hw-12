@@ -35,3 +35,16 @@ main:has(.back-link) {
 .container {
   text-align: center;
 }
+
+button {
+  padding: 8px 16px;
+  border-radius: 8px;
+  background-color: #4e75ff;
+  color: #fff;
+  border: transparent;
+  transition: 0.3s linear;
+
+  &:hover {
+    background-color: #6c8cff;
+  }
+}
