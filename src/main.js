@@ -76,7 +76,7 @@ async function onLoadMore() {
   showLoader();
 
   try {
-    // здесь тоже искусственная задержка
+    // и здесь тоже искусственная задержка
     await new Promise(resolve => setTimeout(resolve, 1000));
 
     const data = await getImagesByQuery(query, page);
