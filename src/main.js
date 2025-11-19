@@ -1,3 +1,4 @@
+// import './css/styles.css';
 import { getImagesByQuery, perPage } from './js/pixabay-api';
 import {
   createGallery,
